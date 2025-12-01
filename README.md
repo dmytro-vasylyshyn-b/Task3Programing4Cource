@@ -1,6 +1,6 @@
-Nastya Linux Tools (Java Edition)
+Linux Tools (Java Edition)
 
-Це Java-реалізація класичних Unix-утиліт sort та tail, написана з використанням бібліотеки Picocli.
+Це Java-реалізація класичних Unix-утиліт sort та tail
 
 Функціонал
 
