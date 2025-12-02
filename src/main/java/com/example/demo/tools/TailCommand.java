@@ -50,8 +50,7 @@ public class TailCommand implements Callable<Integer> {
     }
 
     private void processStream(BufferedReader br, String sourceName) throws IOException {
-        // Використовуємо LinkedList як чергу, щоб зберігати тільки останні N рядків
-        LinkedList<String> buffer = new LinkedList<>();
+cd        LinkedList<String> buffer = new LinkedList<>();
 
         String line;
         while ((line = br.readLine()) != null) {
