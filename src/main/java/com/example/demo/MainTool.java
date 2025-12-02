@@ -7,7 +7,6 @@ import picocli.CommandLine.Command;
 
 @Command(name = "jtools",
         mixinStandardHelpOptions = true,
-        version = "jtools 1.0",
         subcommands = {SortCommand.class, TailCommand.class})
 public class MainTool {
 

@@ -58,7 +58,6 @@ public class SortCommand implements Callable<Integer> {
 
         lines.sort(comparator);
 
-        // Вивід результату
         for (String line : lines) {
             System.out.println(line);
         }
