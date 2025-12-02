@@ -41,11 +41,11 @@ public class SortCommand implements Callable<Integer> {
                 if (n1 != null && n2 != null) {
                     return Double.compare(n1, n2);
                 } else if (n1 != null) {
-                    return -1; // Числа йдуть перед текстом
+                    return -1;
                 } else if (n2 != null) {
                     return 1;
                 } else {
-                    return s1.compareTo(s2); // Якщо обидва не числа, сортуємо як текст
+                    return s1.compareTo(s2);
                 }
             };
         } else {
@@ -66,7 +66,6 @@ public class SortCommand implements Callable<Integer> {
         return 0;
     }
 
-    // Допоміжний метод для читання рядків з файлів або stdin
     private List<String> readLines() throws IOException {
         List<String> lines = new ArrayList<>();
 
