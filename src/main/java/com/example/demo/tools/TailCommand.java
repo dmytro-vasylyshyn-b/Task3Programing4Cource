@@ -50,7 +50,7 @@ public class TailCommand implements Callable<Integer> {
     }
 
     private void processStream(BufferedReader br, String sourceName) throws IOException {
-cd        LinkedList<String> buffer = new LinkedList<>();
+        LinkedList<String> buffer = new LinkedList<>();
 
         String line;
         while ((line = br.readLine()) != null) {
