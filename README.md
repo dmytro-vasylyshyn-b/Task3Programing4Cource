@@ -1,58 +1,86 @@
-Linux Tools (Java Edition)
+# ️ Linux Tools (Java Edition)
 
-Це Java-реалізація класичних Unix-утиліт sort та tail
+Java-реалізація класичних Unix-утиліт **sort** та **tail**, що працюють з файлами та стандартним вводом.
 
-Функціонал
+---
 
-sort: Сортування рядків з файлів або stdin.
+##  Функціонал
 
--r, --reverse: Зворотний порядок.
+###  **sort**
+Сортування рядків з файлу або `stdin`.
 
--n, --numeric: Числове сортування (числа йдуть першими).
+Опції:
+- **-r**, **--reverse** — зворотний порядок
+- **-n**, **--numeric** — числове сортування (числа йдуть першими)
 
-tail: Вивід останніх N рядків файлу.
+---
 
--n <count>: Вказати кількість рядків (за замовчуванням 10).
+###  **tail**
+Вивід останніх `N` рядків файлу.
 
-Вимоги
+Опції:
+- **-n <count>** — кількість рядків (default: 10)
 
-Java 17 або вище
+---
 
-Maven
+##  Вимоги
 
-Як зібрати проект
+- **Java 17+**
+- **Maven**
 
+---
+
+##  Збірка
+
+```bash
 mvn clean package
 
+```
 
-Ця команда створить файл target
+Після збірки JAR буде доступний у директорії `target/`.
 
-Як запустити
-
-Загальний синтаксис:
-
-- java -jar demo-0.0.1-SNAPSHOT.jar  <command> [options]
+## Запуск
+### Загальний синтаксис
 
 
-Приклади використання:
-
-Sort:
-
-# Звичайне сортування
-- java -jar demo-0.0.1-SNAPSHOT.jar sort myfile.txt
-
-# Числове сортування у зворотному порядку
-- java -jar demo-0.0.1-SNAPSHOT.jar  sort -n -r numbers.txt
-
-# Через pipe (stdin)
-- cat myfile.txt | java -jar demo-0.0.1-SNAPSHOT.jar  sort
 
 
-Tail:
+```
+java -jar demo-0.0.1-SNAPSHOT.jar <command> [options]
+```
 
-# Останні 10 рядків (default)
-- java -jar demo-0.0.1-SNAPSHOT.jar tail log.txt
 
-# Останні 20 рядків
-- java -jar demo-0.0.1-SNAPSHOT.jar tail -n 20 log.txt
+##  Приклади використання
 
+##  SORT
+
+### Звичайне сортування
+```
+java -jar demo-0.0.1-SNAPSHOT.jar sort myfile.txt
+```
+
+### Числове сортування у зворотному порядку
+```
+java -jar demo-0.0.1-SNAPSHOT.jar sort -n -r numbers.txt
+```
+
+### Через pipe (stdin)
+```
+cat myfile.txt | java -jar demo-0.0.1-SNAPSHOT.jar sort
+```
+
+
+
+##  TAIL
+
+### Останні 10 рядків (default)
+```
+java -jar demo-0.0.1-SNAPSHOT.jar tail log.txt
+```
+### Останні 20 рядків
+```
+java -jar demo-0.0.1-SNAPSHOT.jar tail -n 20 log.txt
+```
+
+##  Ліцензія
+Вільна для використання в навчальних цілях.
