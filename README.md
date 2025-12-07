@@ -69,6 +69,11 @@ java -jar demo-0.0.1-SNAPSHOT.jar sort -n -r numbers.txt
 cat myfile.txt | java -jar demo-0.0.1-SNAPSHOT.jar sort
 ```
 
+### Через аргументи
+```
+java -jar demo-0.0.1-SNAPSHOT.jar sort "apple" "orange" "banana"
+```
+
 
 
 ##  TAIL
@@ -77,9 +82,15 @@ cat myfile.txt | java -jar demo-0.0.1-SNAPSHOT.jar sort
 ```
 java -jar demo-0.0.1-SNAPSHOT.jar tail log.txt
 ```
+
 ### Останні 20 рядків
 ```
-java -jar demo-0.0.1-SNAPSHOT.jar tail -n 20 log.txt
+java -jar demo-0.0.1-SNAPSHOT.jar tail -n 20 log.txt    
+```
+
+### Останні n з аргументів
+```
+java -jar demo-0.0.1-SNAPSHOT.jar tail -n 2 "line1" "line2" "line3"
 ```
 
 ##  Ліцензія

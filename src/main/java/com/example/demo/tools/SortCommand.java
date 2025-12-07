@@ -5,6 +5,7 @@ import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,7 +16,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.Callable;
 
-@Command(name = "sort", description = "Sort lines of text files")
+@Command(name = "sort", description = "Sort lines of text files or direct string arguments")
 public class SortCommand implements Callable<Integer> {
 
     @Option(names = {"-r", "--reverse"}, description = "Reverse sort order")
@@ -24,8 +25,8 @@ public class SortCommand implements Callable<Integer> {
     @Option(names = {"-n", "--numeric"}, description = "Compare according to numeric value")
     private boolean numeric;
 
-    @Parameters(description = "Files to read (empty for stdin)")
-    private List<String> files;
+    @Parameters(description = "Files to read or strings to sort")
+    private List<String> inputs; // Перейменував files на inputs для ясності
 
     @Override
     public Integer call() throws Exception {
@@ -68,18 +69,27 @@ public class SortCommand implements Callable<Integer> {
     private List<String> readLines() throws IOException {
         List<String> lines = new ArrayList<>();
 
-        if (files == null || files.isEmpty()) {
+        // Якщо аргументів немає, читаємо зі Standard Input (Pipe)
+        if (inputs == null || inputs.isEmpty()) {
             readStream(new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8)), lines);
         } else {
-            for (String file : files) {
-                if ("-".equals(file)) {
+            for (String input : inputs) {
+                if ("-".equals(input)) {
                     readStream(new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8)), lines);
-                } else {
+                    continue;
+                }
+
+                File file = new File(input);
+
+                if (file.exists() && file.isFile()) {
                     try (BufferedReader br = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8))) {
                         readStream(br, lines);
                     } catch (IOException e) {
-                        System.err.println("Error reading file " + file + ": " + e.getMessage());
+                        System.err.println("Error reading file " + input + ": " + e.getMessage());
                     }
+                } else {
+                    // Це просто рядок (наприклад, "apple")
+                    lines.add(input);
                 }
             }
         }
