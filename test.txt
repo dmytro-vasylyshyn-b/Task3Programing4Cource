@@ -1,23 +1,58 @@
-Ось згенерований текст, що базується на даних та прикладах з вашої лекції (зокрема Приклад 1 та Приклад 2).
-Тут є числові ряди, матриці (напрямків та Гессе) та змішані дані, які можна використовувати як тестовий набір або приклад оформлення звіту.1.
-Матриці напрямків та перевірка рангуЦе приклад матриці, складеної з векторів напрямків для перевірки їх лінійної незалежності, як описано в алгоритмі111.Матриця P (з Прикладу 1):
+Here is the generated text, based on the data and examples from your lecture (including Example 1 and Example 2).
+Here there are numerical sequences, matrices (of directions and Hessian) and mixed data that can be used as a test set or an example of report formatting.
+
+1. Matrices of directions and rank checking
+This is an example of a matrix composed of direction vectors for checking their linear independence, as described in the algorithm.
+
+Matrix P (from Example 1):
 -3 & 0
 0 & 1
-Ранг цієї матриці: (P) = 2 = n, отже система незалежна2.
-Матриця Гессе (для функції з Прикладу 2):Для функції f(x)=3x_{1}^{2}+2x_{1}x_{2}+x_{2}^{2} 3 матриця других похідних виглядає так:
+Rank of this matrix: rank(P) = 2 = n, therefore the system is independent
+
+2. Hessian matrix (for the function from Example 2):
+For the function f(x)=3x_{1}^{2}+2x_{1}x_{2}+x_{2}^{2} the matrix of second derivatives looks like this:
 6 & 2
 2 & 2
-2. Числові дані у рядках (Лог ітерацій)Нижче наведено послідовність точок x та кроків lambda (alpha) з Прикладу 2,
-записані у вигляді рядків даних.
-Format: Iteration | Alpha_step | X1_coord | X2_coordPlaintext0   0.00    6.00    4.00   (Початкова точка x0)
-1  -10.00   6.00   -6.00   (Після руху по S2)
-2  -4.00    2.00   -6.00   (Після руху по S1)
-3   4.00    2.00   -2.00   (Після руху по S2)
-4   0.50    0.00    0.00   (Кінцева точка x4, мінімум)
-3. Змішаний текст (Параметри алгоритму)Текст, що містить позначення змінних, вектори та умови зупинки, взяті з опису алгоритму та прикладів.Вхідні параметри:Початкова точка: $x^{(0)} = (8; 9)^T$ 5Точність обчислень: $\epsilon = 10^{-4}$ 6Початковий базис: $p^1 = (1, 0, 0...)$, $p^n = (0, ... 0, 1)$ 7Векторні обчислення (Приклад 1):Розрахунок спряженого напрямку $\overline{p}$ через різницю точок:Vector A: $y^3 = (5; 6)$Vector B: $y^1 = (8; 6)$Result $p_{new} = y^3 - y^1 = (-3; 0)$ 8Перевірка умови закінчення:Norm calculation: $||x^1 - x^0|| [cite_start]= \sqrt{(8-5)^2 + (9-6)^2} = 4.24$9.Condition: $4.24 > \epsilon$ (продовжуємо пошук).4. Raw Data Block (для копіювання)Якщо вам потрібен просто блок чисел для вставки в код (матриця 4x2 з координат точок проходу з Прикладу 2):Plaintext 6.0   4.0
+
+2. Numerical data in rows (Iteration log)
+Below is the sequence of points x and steps lambda (alpha) from Example 2,
+written as data rows.
+
+Format: Iteration | Alpha_step | X1_coord | X2_coord
+
+Plaintext
+0   0.00    6.00    4.00   (Initial point x0)
+1  -10.00   6.00   -6.00   (After movement along S2)
+2  -4.00    2.00   -6.00   (After movement along S1)
+3   4.00    2.00   -2.00   (After movement along S2)
+4   0.50    0.00    0.00   (Final point x4, minimum)
+
+3. Mixed text (Algorithm parameters)
+Text containing variable notations, vectors and stopping conditions taken from the algorithm description and examples.
+
+Input parameters:
+Initial point: $x^{(0)} = (8; 9)^T$
+Accuracy: $\epsilon = 10^{-4}$
+Initial basis: $p^1 = (1, 0, 0...)$, $p^n = (0, ... 0, 1)$
+
+Vector computations (Example 1):
+Computation of the conjugate direction $\overline{p}$ via the difference of points:
+Vector A: $y^3 = (5; 6)$
+Vector B: $y^1 = (8; 6)$
+Result $p_{new} = y^3 - y^1 = (-3; 0)$
+
+Checking the stopping condition:
+Norm calculation: $||x^1 - x^0|| = \sqrt{(8-5)^2 + (9-6)^2} = 4.24$
+Condition: $4.24 > \epsilon$ (continue the search).
+
+4. Raw Data Block (for copying)
+If you need just a block of numbers to insert into the code (a 4x2 matrix of passage point coordinates from Example 2):
+
+Plaintext 
+ 6.0   4.0
  6.0  -6.0
  2.0  -6.0
  2.0  -2.0
  0.0   0.0
 -4.0   4.0
-(Останній рядок — це вектор спряженого напрямку $(-4, 4)$ 10)
+(The last row is the conjugate direction vector $(-4, 4)$)
